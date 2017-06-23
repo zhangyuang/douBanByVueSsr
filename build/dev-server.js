@@ -1,6 +1,5 @@
 const fs = require('fs')
 const path = require('path')
-const LRU = require('lru-cache')
 const express = require('express')
 const compression = require('compression')
 const isProd = process.env.NODE_ENV === 'production'
@@ -12,12 +11,16 @@ const { createBundleRenderer } = require('vue-server-renderer')
 const template = require('fs').readFileSync(path.resolve('./src/template.html'), 'utf-8')
 const serverBundle = require(path.resolve('./dist/vue-ssr-server-bundle.json'))
 const clientManifest = require(path.resolve('./dist/vue-ssr-client-manifest.json'))
+function resolve (dir) {
+  return path.join(__dirname, dir)
+}
 let renderer
 let readyPromise
 function createRenderer (bundle, options) {
   return createBundleRenderer(bundle, Object.assign(options, {
     template,
     runInNewContext: false,
+    basedir: resolve('../dist'),
   }))
 }
 if (isProd) {
@@ -32,7 +35,10 @@ else {
     renderer = createRenderer(bundle, options)
   })
 }
-
+const serve = (path, cache) => express.static(resolve(path), {
+  maxAge: cache && isProd ? 1000 * 60 * 60 * 24 * 30 : 0
+})
+app.use('/dist', serve('../dist', true))
 function render (req, res) {
   const s = Date.now()
   res.setHeader("Content-Type", "text/html")

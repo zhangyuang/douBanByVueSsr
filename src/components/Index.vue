@@ -1,16 +1,13 @@
 <template>
 	<div>
-		<h1>zhangyuang {{ age }}</h1>
+		<h1>zhang {{ age }}</h1>
 		<button @click='up'>up</button>
 	</div>
 </template>
 
 <script>
 
-//vuex getter
-import { mapGetters } from 'vuex'
-// vuex action
-import { mapActions } from 'vuex'
+import { mapGetters, mapActions } from 'vuex'
 export default {
 	computed: {
 		...mapGetters([
@@ -47,8 +44,5 @@ export default {
 }
 </script>
 <style>
-#app {
-	background-color: #eee;
-	padding: 10px;
-}
+
 </style>

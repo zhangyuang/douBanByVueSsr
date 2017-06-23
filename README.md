@@ -1,6 +1,5 @@
-# myproject
+# mydoubanbyvuessr
 
-> mydoubanbyvuessr
 
 ## Build Setup
 
