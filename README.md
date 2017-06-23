@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # myproject
 
 > emojistore
@@ -19,3 +20,7 @@ npm run build --report
 ```
 
 For detailed explanation on how things work, checkout the [guide](http://vuejs-templates.github.io/webpack/) and [docs for vue-loader](http://vuejs.github.io/vue-loader).
+=======
+# doubanbyvuessr
+基于最新的vue2.3的ssr的仿豆瓣程序，后端restfulApi采用node+express
+>>>>>>> e011878431af3aa431449f79fe52e55e7f1d74e2
