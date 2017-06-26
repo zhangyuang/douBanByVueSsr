@@ -1,29 +1,28 @@
 // 首页数据
-import types from '../mutation-types';
-import api from '../../../public/api';
+import types from '../mutation-types'
+import api from '../../publicApi'
 import axios from 'axios'
 // initialstate
 const state = {
-	emojiKind: [], //首页表情上方分类数据
+	movieList: [], //电影数据
 }
 // getter
 const getters = {
-	emojiKind: state => state.emojiKind
+	movieList: state => state.movieList
 }
 // actions
 const actions = {
-	getEmojiKind ({ commit }) {
-		console.log("action")
-		return axios.get(api.getPageData4Albums)
+	getAllMovie ({ commit }) {
+		 return axios.get(api.queryAll)
 				.then(res => {
-					commit(types.INDEX_SET_EMOJIKIND, res.data);
+					commit(types.INDEX_SET_MOVIELIST, res.data)
 				})
 	}
 }
 // mutations
 const mutations = {
-    	[types.INDEX_SET_EMOJIKIND] (state, data) {
-			state.emojiKind = data.albums;
+    	[types.INDEX_SET_MOVIELIST] (state, data) {
+			state.movieList = data
   	},	
 };
 const index = {

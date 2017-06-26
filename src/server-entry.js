@@ -10,8 +10,8 @@ export default context => {
 				reject({ code: 404 })
 			}
 			Promise.all(matchedComponents.map(Component => {
-				if(Component.asyncData) {
-					return Component.asyncData({
+				if(Component.preFetch) {
+					return Component.preFetch({
 						store,
 						router: router.currentRoute
 					})

@@ -1,18 +1,17 @@
 <template>
 	<div>
-		<h1>zhang {{ age }}</h1>
-		<button @click='up'>up</button>
+		<h1>zhng {{ age }}</h1>
 	</div>
 </template>
 
 <script>
 
-import { mapGetters, mapActions } from 'vuex'
+import { mapState, mapActions } from 'vuex'
 export default {
 	computed: {
-		...mapGetters([
-			'emojiKind'
-		])
+		...mapState({
+			movieList: state => state.index.movieList
+		})
 	},
 	data () {
 		return {
@@ -20,26 +19,16 @@ export default {
 		}
 	},
 	mounted () {
-		console.log(this.emojiKind)
+		console.log(this.movieList)
 	},
 	//服务端获取首页数据
-	asyncData ({ store, router }) {
-		 console.log("服务端获取数据")
-		 return store.dispatch('getEmojiKind')
-	},
-	beforeMount () {
-		console.log("客户端获取数据")
+	preFetch ({ store, router }) {
+		 return store.dispatch('getAllMovie')
 	},
 	methods: {
 		...mapActions([
-			'getEmojiKind'
+			'getAllMovie'
 		]),
-		initial () {
-			this.getEmojiKind()
-		},
-		up () {
-			++this.age
-		}
 	}
 }
 </script>
