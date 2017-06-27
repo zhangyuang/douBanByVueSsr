@@ -7,7 +7,7 @@ export function createRouter () {
   return new Router({
     mode: 'history',
     routes: [
-      { path: '/', component: () => import('../components/Index.vue') },
+      { path: '/', component: () => import('../components/Index/Index') },
     ]
   })
 }

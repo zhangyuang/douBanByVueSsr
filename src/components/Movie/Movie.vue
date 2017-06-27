@@ -7,7 +7,7 @@
 <script>
 
 import { mapState, mapActions } from 'vuex'
-import MovieHeader from './MovieHeader'
+import MovieHeader from '../MovieHeader/MovieHeader'
 export default {
 	props: ['item'],
 	components: {
