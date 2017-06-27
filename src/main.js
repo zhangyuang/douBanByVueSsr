@@ -3,7 +3,6 @@ import { createRouter } from './router'
 import { createStore } from './vuex'
 import { sync } from 'vuex-router-sync'
 import App from './app'
-
 export function createApp (ssrContext) {
   const router = createRouter()
   const store = createStore()
@@ -11,6 +10,7 @@ export function createApp (ssrContext) {
   const app = new Vue({
     router,
     store,
+    ssrContext,
     render: h => h(App)
   })
   return { app, router, store }

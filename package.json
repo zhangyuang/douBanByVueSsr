@@ -44,8 +44,9 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "build-s": "webpack --config build/webpack.server.conf.js",
     "build-c": "webpack --config build/webpack.client.conf.js",
-    "build": "npm run build-c && npm run build-s",
-    "dev": "node build/dev-server.js"
+    "build": "rm -rf ./dist && npm run build-c && npm run build-s",
+    "dev": "node build/dev-server.js",
+    "start-prod": "NODE_ENV=production node build/dev-server.js"
   },
   "engines": {
     "node": ">= 4.0.0",

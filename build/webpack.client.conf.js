@@ -29,7 +29,6 @@ module.exports = merge(baseConfig, {
 	    new webpack.optimize.CommonsChunkPlugin({
 	      name: 'manifest'
 	    }),
-		new VueSSRClientPlugin(),
-		new HtmlWebpackPlugin()
+		new VueSSRClientPlugin()
 	]
 })

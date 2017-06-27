@@ -20,12 +20,10 @@ function createRenderer (bundle, options) {
   return createBundleRenderer(bundle, Object.assign(options, {
     template,
     runInNewContext: false,
-    basedir: resolve('../dist'),
   }))
 }
 if (isProd) {
     const bundle = serverBundle
-    const clientManifest = clientManifest
     renderer = createRenderer(bundle, {
       clientManifest
     })
@@ -41,7 +39,7 @@ const serve = (path, cache) => express.static(resolve(path), {
 app.use('/dist', serve('../dist', true))
 function render (req, res) {
   const s = Date.now()
-  res.setHeader("Content-Type", "text/html")
+  res.setHeader('Content-Type','text/html;charset=UTF-8');
   res.setHeader("Server", serverInfo)
 
   const handleError = err => {

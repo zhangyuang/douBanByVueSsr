@@ -16,8 +16,8 @@ router.onReady(() => {
       return next()
     }
     Promise.all(activated.map(c => {
-      if (c.asyncData) {
-        return c.asyncData({ store, route: to })
+      if (c.preFetch) {
+        return c.preFetch({ store, route: to })
       }
     })).then(() => {
         next()

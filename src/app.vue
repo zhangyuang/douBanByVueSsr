@@ -7,9 +7,8 @@
 </template>
 
 <script type="text/babel">
-
 </script>
 <style>
-
+@import './assets/style/common.css'
 
 </style>

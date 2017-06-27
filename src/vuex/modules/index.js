@@ -4,25 +4,45 @@ import api from '../../publicApi'
 import axios from 'axios'
 // initialstate
 const state = {
-	movieList: [], //电影数据
+	top250: [], 
+	isShow: [],
+	willShow: [],
 }
 // getter
 const getters = {
-	movieList: state => state.movieList
+	
 }
 // actions
 const actions = {
-	getAllMovie ({ commit }) {
-		 return axios.get(api.queryAll)
+	getTop250 ({ commit }) {
+		 return axios.get(api.queryByKind + '?kind=top250')
 				.then(res => {
-					commit(types.INDEX_SET_MOVIELIST, res.data)
+					commit(types.INDEX_SET_TOP250, res.data)
 				})
-	}
+	},
+	getIsShow ({ commit }) {
+		 return axios.get(api.queryByKind + '?kind=isShow')
+				.then(res => {
+					commit(types.INDEX_SET_ISSHOW, res.data)
+				})
+	},
+	getWillShow ({ commit }) {
+		 return axios.get(api.queryByKind + '?kind=willShow')
+				.then(res => {
+					commit(types.INDEX_SET_WILLSHOW, res.data)
+				})
+	},
 }
 // mutations
 const mutations = {
-    	[types.INDEX_SET_MOVIELIST] (state, data) {
-			state.movieList = data
+    [types.INDEX_SET_TOP250] (state, data) {
+			state.top250 = data.result
+  	},
+  	[types.INDEX_SET_ISSHOW] (state, data) {
+			state.isShow = data.result
+  	},	
+  	[types.INDEX_SET_WILLSHOW] (state, data) {
+			state.willShow = data.result
   	},	
 };
 const index = {
