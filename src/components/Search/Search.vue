@@ -1,15 +1,15 @@
 <template>
-	<div>
-		<span>12</span>
+	<div class='search-container'>
+		<my-input></my-input>
 	</div>
 </template>
 
 <script>
-
+import MyInput from '../MyInput/MyInput'
 
 export default {
-	prefetch () {
-		console.log(2)
+	components: {
+		MyInput
 	},
 	data () {
 		return {

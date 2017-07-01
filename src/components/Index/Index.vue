@@ -1,6 +1,6 @@
 <template>
 	<div class="index-container">
-		<index-input></index-input>
+		<my-input></my-input>
 		<movie :item='isShow'></movie>
 		<movie :item='willShow'></movie>
 		<movie :item='top250'></movie>
@@ -11,7 +11,7 @@
 
 import { mapState, mapActions } from 'vuex'
 import Movie from '../Movie/Movie'
-import IndexInput from '../IndexInput/IndexInput'
+import MyInput from '../MyInput/MyInput'
 export default {
 	computed: {
 		...mapState({
@@ -22,7 +22,7 @@ export default {
 	},
 	components: {
 		Movie,
-		IndexInput
+		MyInput
 	},
 	data () {
 		return {
@@ -41,6 +41,9 @@ export default {
 			
 		]),
 		
+	},
+	destoryed () {
+		console.log(1)
 	}
 }
 </script>

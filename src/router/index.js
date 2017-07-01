@@ -5,7 +5,7 @@ Vue.use(Router)
 
 export function createRouter () {
   return new Router({
-    // mode: 'history',
+    mode: 'history',
     routes: [
       { path: '/', component: () => import('../components/Index/Index') },
       { path: '/search', component: () => import('../components/Search/Search')}
