@@ -16,7 +16,7 @@
 可能有些代码和demo的介绍不一样但没有本质区别。简化了部分代码
 <br>
 代码缩进风格和项目架构均使用当前最标准的架构体现模块化开发的思想
-###  觉得好的话麻烦给个star或者fork🤔
+###  觉得好的话麻烦给个star欢迎fork🤔
 ```
 git clone git@github.com:zhangyuang/doubanbyvuessr.git
 
@@ -32,6 +32,7 @@ npm run start-prod 在生产模式下启动
 生产模式具有将css文件提取为一个单独的css功能
 
 # 目标功能
+- [x] 使用code spliting 尽可能优化性能 -- 完成
 - [x] 使用flex + rem实现多移动端自适应 -- 完成
 - [x] 首页查看3种分类的电影功能 -- 完成
 - [ ] 模糊搜索电影功能 -- 开发中
