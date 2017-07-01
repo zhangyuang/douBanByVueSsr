@@ -1,5 +1,6 @@
 const fs = require('fs')
 const path = require('path')
+const LRU = require('lru-cache')
 const express = require('express')
 const compression = require('compression')
 const isProd = process.env.NODE_ENV === 'production'
@@ -20,6 +21,10 @@ function createRenderer (bundle, options) {
   return createBundleRenderer(bundle, Object.assign(options, {
     template,
     runInNewContext: false,
+    // cache: LRU({
+    //   max: 10000,
+    //   maxAge: ...
+    // })//启用组件缓存
   }))
 }
 if (isProd) {
@@ -54,18 +59,33 @@ function render (req, res) {
   }
 
   const context = {
-    title: 'douban', // default title
     url: req.url
   }
-  renderer.renderToString(context, (err, html) => {
-    if (err) {
-      return handleError(err)
-    }
+  //启用nodejs流式渲染
+  const stream = renderer.renderToStream(context)
+  let html = ''
+  stream.on('data', data => {
+    html += data.toString()
+  })
+  stream.on('end', () => {
     res.end(html)
     if (!isProd) {
       console.log(`whole request: ${Date.now() - s}ms`)
     }
   })
+  stream.on('error', err => {
+    console.log(err)
+  })
+  //以下为非流式渲染
+  // renderer.renderToString(context, (err, html) => {
+  //   if (err) {
+  //     return handleError(err)
+  //   }
+  //   res.end(html)
+  //   if (!isProd) {
+  //     console.log(`whole request: ${Date.now() - s}ms`)
+  //   }
+  // })
 }
 
 app.get('*', isProd ? render : (req, res) => {

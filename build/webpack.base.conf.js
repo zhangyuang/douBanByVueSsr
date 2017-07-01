@@ -1,8 +1,9 @@
-var path = require('path')
-var utils = require('./utils')
-var config = require('../config')
-var vueLoaderConfig = require('./vue-loader.conf')
-
+const path = require('path')
+const utils = require('./utils')
+const config = require('../config')
+const vueLoaderConfig = require('./vue-loader.conf')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const isProduction = process.env.NODE_ENV === 'production'
 function resolve (dir) {
   return path.join(__dirname, '..', dir)
 }
@@ -34,6 +35,15 @@ module.exports = {
         exclude: resolve('node_modules')
       },
       {
+         test: /\.css$/,
+         // 重要：使用 vue-style-loader 替代 style-loader
+         use: isProduction ? ExtractTextPlugin.extract({
+              use: 'css-loader',
+              fallback: 'vue-style-loader'
+            })
+          : ['vue-style-loader', 'css-loader']
+      },
+      {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
         loader: 'url-loader',
         options: {
@@ -50,5 +60,6 @@ module.exports = {
         }
       }
     ]
-  }
+  },
+  plugins: isProduction ? [new ExtractTextPlugin({ filename: 'common.[chunkhash].css' })] : []
 }

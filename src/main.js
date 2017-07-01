@@ -6,6 +6,7 @@ import App from './app'
 export function createApp (ssrContext) {
   const router = createRouter()
   const store = createStore()
+  //同步路由状态到store
   sync(store, router)
   const app = new Vue({
     router,

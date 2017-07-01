@@ -1,5 +1,6 @@
 <template>
-	<div>
+	<div class="index-container">
+		<index-input></index-input>
 		<movie :item='isShow'></movie>
 		<movie :item='willShow'></movie>
 		<movie :item='top250'></movie>
@@ -10,6 +11,7 @@
 
 import { mapState, mapActions } from 'vuex'
 import Movie from '../Movie/Movie'
+import IndexInput from '../IndexInput/IndexInput'
 export default {
 	computed: {
 		...mapState({
@@ -19,7 +21,8 @@ export default {
 		})
 	},
 	components: {
-		Movie
+		Movie,
+		IndexInput
 	},
 	data () {
 		return {
@@ -31,7 +34,7 @@ export default {
 		 return store.dispatch('getTop250'), store.dispatch('getWillShow'), store.dispatch('getIsShow')
 	},
 	mounted () {
-		console.log(this.willShow,this.top250,this.isShow)
+		
 	},
 	methods: {
 		...mapActions([
@@ -41,6 +44,9 @@ export default {
 	}
 }
 </script>
-<style>
-
+<style scoped>
+.index-container {
+	display: flex;
+	flex-direction: column;
+}
 </style>

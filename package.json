@@ -30,6 +30,7 @@
     "lru-cache": "^4.0.2",
     "opn": "^4.0.2",
     "shelljs": "^0.7.7",
+    "url-loader": "^0.5.9",
     "vue-loader": "^12.0.2",
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "^2.3.0",
@@ -42,9 +43,9 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-s": "webpack --config build/webpack.server.conf.js",
-    "build-c": "webpack --config build/webpack.client.conf.js",
-    "build": "rm -rf ./dist && npm run build-c && npm run build-s",
+    "build-s": "NODE_ENV=production webpack --config build/webpack.server.conf.js",
+    "build-c": "NODE_ENV=production webpack --config build/webpack.client.conf.js",
+    "build": "rm -rf ./dist &&  NODE_ENV=production npm run build-c && NODE_ENV=production npm run build-s",
     "dev": "node build/dev-server.js",
     "start-prod": "NODE_ENV=production node build/dev-server.js"
   },
