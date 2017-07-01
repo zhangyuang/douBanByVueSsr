@@ -2,6 +2,7 @@
 后台restful api采用node + express框架。[项目地址](https://github.com/zhangyuang/MyDouBanApi)
 <br>
 关于为什么要使用首页服务端渲染。主要的优点有以下两点
+<br>
 1、在渲染首页数据时不需要客户端发起ajax请求数据然后将数据插入到页面，而是直接在服务端完成请求数据的逻辑，直接返回插入好数据的html给客户端渲染
 <br>
 2、便于SEO，如果是单页面应用不使用服务端渲染的话在页面结构看到的只是空荡荡的div #app
@@ -9,11 +10,13 @@
 关于ssr的官方文档请查看[这里](https://ssr.vuejs.org/zh/)
 <br>
 想查看尤老师的官方demo请查看[这里](https://github.com/vuejs/vue-hackernews-2.0/)
+<br>
 由于文档和demo的写法不是完全一样，我这里在吸收了两者后，根据自己的理解开发了这个项目的架构，
 <br>
 可能有些代码和demo的介绍不一样但没有本质区别。简化了部分代码
+<br>
 代码缩进风格和项目架构均使用当前最标准的架构体现模块化开发的思想
-## 觉得好的话麻烦给个star或者fork
+###  觉得好的话麻烦给个star或者fork🤔
 ```
 git clone git@github.com:zhangyuang/doubanbyvuessr.git
 
@@ -29,6 +32,7 @@ npm run start-prod 在生产模式下启动
 生产模式具有将css文件提取为一个单独的css功能
 
 # 目标功能
+- [x] 使用flex + rem实现多移动端自适应 -- 完成
 - [x] 首页查看3种分类的电影功能 -- 完成
 - [ ] 模糊搜索电影功能 -- 开发中
 - [ ] 热搜词功能 -- 开发中
