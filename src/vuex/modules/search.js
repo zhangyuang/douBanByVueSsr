@@ -6,6 +6,7 @@ import axios from 'axios'
 const state = {
 	HotEmoji: [],
 	searchResult: [],
+	showLoading: false,
 }
 // getter
 const getters = {
@@ -20,11 +21,13 @@ const actions = {
 			   })
 	},
 	searchMovie ({ commit }, name) {
-		console.log(api.searchMovie+name)
 		return axios.get(api.searchMovie + name)
 			   .then(res => {
 			   		commit(types.SEARCH_SET_SEARCHRESULT, res.data)
 			   })
+	},
+	changeLoading ({ commit }) {
+		commit(types.SEARCH_CHANGE_LOADING)
 	}
 }
 // mutations
@@ -34,8 +37,10 @@ const mutations = {
   	},
   	[types.SEARCH_SET_SEARCHRESULT] (state, data) {
 		state.searchResult = data	
+  	},
+  	[types.SEARCH_CHANGE_LOADING] (state) {
+  		state.showLoading = !state.showLoading
   	}
-
 };
 const search = {
 	state,

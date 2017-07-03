@@ -28,10 +28,32 @@ export default {
     },
     methods: {
     	...mapActions([
-		  	'searchMovie'
+		  	'searchMovie',
+		  	'changeLoading'
     	]),
     	search (name) {
-			this.searchMovie(name)
+    		let that = this
+    		//以下是promise的写法
+    		// this.changeLoading()
+    		//let promise = new Promise((resolve, reject) => {
+    			//resolve(that.searchMovie(name))
+    		//})
+			//promise.then((value) => {
+			//	that.changeLoading()
+			//})
+
+			//以下是es7的async await写法
+			let change = () => {
+				return new Promise((resolve, reject) => {
+		    		resolve(that.searchMovie(name))
+		    	})
+			}
+			let start = async () => {
+				that.changeLoading()
+				await change()
+				that.changeLoading()
+			}
+			start()
     	}
   	}
   }

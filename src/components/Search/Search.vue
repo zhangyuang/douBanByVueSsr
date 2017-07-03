@@ -2,6 +2,7 @@
 	<div class='search-container'>
 		<my-input></my-input>
 		<hot-emoji></hot-emoji>
+		<my-loading></my-loading>
 		<movie-content :movielist='searchResult'></movie-content>
 	</div>
 </template>
@@ -9,13 +10,15 @@
 <script>
 import { mapState } from 'vuex'
 import MyInput from '../MyInput/MyInput'
+import MyLoading from '../MyLoading/MyLoading'
 import HotEmoji from '../HotEmoji/HotEmoji'
 import MovieContent from '../MovieContent/MovieContent'
 export default {
 	components: {
 		MyInput,
 		HotEmoji,
-		MovieContent
+		MovieContent,
+		MyLoading
 	},
 	computed: {
 		...mapState({

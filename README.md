@@ -34,6 +34,7 @@ npm run start-prod 在生产模式下启动
 <br>
 生产模式具有将css文件提取为一个单独的css功能以及砍掉一些设置实现性能最大化
 ### 注：由于flex-wrap无法在ios7.X版本以及某些国产android使用故本项目在需要使用flex-wrap时都使用float代替
+### 本项目中有使用promise以及async await不熟悉的朋友请先查看这两种新特性的教程
 # 目标功能
 - [x] 服务端使用node流式渲染提升性能 -- 完成
 - [x] 使用code spliting 尽可能优化性能 -- 完成
