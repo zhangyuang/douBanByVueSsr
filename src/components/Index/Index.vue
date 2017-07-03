@@ -31,7 +31,12 @@ export default {
 	},
 	//服务端获取首页数据
 	preFetch ({ store, router }) {
-		 return store.dispatch('getTop250'), store.dispatch('getWillShow'), store.dispatch('getIsShow')
+		 return Promise.all([
+		 	store.dispatch('getTop250'), 
+		 	store.dispatch('getWillShow'), 
+		 	store.dispatch('getIsShow'), 
+		 	store.dispatch('getHotEmoji'),
+		 ])
 	},
 	mounted () {
 		
@@ -43,7 +48,7 @@ export default {
 		
 	},
 	destoryed () {
-		console.log(1)
+		
 	}
 }
 </script>

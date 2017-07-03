@@ -24,7 +24,7 @@ export default {
 	methods: {
 		getStar (rating) {
 			let star = []
-			let score = Math.ceil(rating / 2)
+			let score = rating / 2
 			for (let i = 0; i < 5; i++) {
 				if (i < score) star.push(1)
 				else star.push(0)

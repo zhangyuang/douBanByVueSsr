@@ -42,6 +42,7 @@ const serve = (path, cache) => express.static(resolve(path), {
   maxAge: cache && isProd ? 1000 * 60 * 60 * 24 * 30 : 0
 })
 app.use('/dist', serve('../dist', true))
+app.use('/public', serve('../public', true))
 function render (req, res) {
   const s = Date.now()
   res.setHeader('Content-Type','text/html;charset=UTF-8');

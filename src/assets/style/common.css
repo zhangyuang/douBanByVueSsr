@@ -9,6 +9,9 @@ body {
     height: 100%;
     background: #eee;
 }
+ul {
+    list-style: none;
+}
 @media screen and (max-width:321px) {
     html {
         font-size: 12px!important

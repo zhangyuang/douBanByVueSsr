@@ -6,8 +6,7 @@
 				搜索
 			</div>
 			<input type="text" v-model="searchKey">
-		</div>
-		
+		</div>	
 	</div>
 </template>
 
@@ -21,7 +20,6 @@ export default {
 		}
 	},
 	mounted () {
-		console.log(this.$route.path)
 		this.$route.path == '/search' ? this.isIndex = false : ''
 	},
 	methods: {
@@ -31,9 +29,7 @@ export default {
 			}		
 		}
 	},
-	destoryed () {
-		console.log(1)
-	}
+	
 }
 </script>
 <style scoped>
