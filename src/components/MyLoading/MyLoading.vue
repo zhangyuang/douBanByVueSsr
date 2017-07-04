@@ -28,12 +28,9 @@ export default {
 </script>
 <style scoped>
 .loading-container {
+	width: 6rem;
 	display: flex;
 	align-items: center;
-	position: fixed;
-	left: 50%;
-	top: 50%;
-	transform: translate(-50%, -50%);
 	font-size: 0.6rem;
 }
 .loading {

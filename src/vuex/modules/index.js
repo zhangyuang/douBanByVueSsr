@@ -15,19 +15,19 @@ const getters = {
 // actions
 const actions = {
 	getTop250 ({ commit }) {
-		 return axios.get(api.queryByKind + '?kind=top250')
+		 return axios.get(api.queryByKind + 'top250')
 				.then(res => {
 					commit(types.INDEX_SET_TOP250, res.data)
 				})
 	},
 	getIsShow ({ commit }) {
-		 return axios.get(api.queryByKind + '?kind=isShow')
+		 return axios.get(api.queryByKind + 'isShow')
 				.then(res => {
 					commit(types.INDEX_SET_ISSHOW, res.data)
 				})
 	},
 	getWillShow ({ commit }) {
-		 return axios.get(api.queryByKind + '?kind=willShow')
+		 return axios.get(api.queryByKind + 'willShow')
 				.then(res => {
 					commit(types.INDEX_SET_WILLSHOW, res.data)
 				})

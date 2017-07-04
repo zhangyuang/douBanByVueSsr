@@ -1,7 +1,7 @@
 <template>
 	<div class="movie-header-container">
 		<div class="header-title">{{ title }}</div>
-		<div class="header-more">更多 ></div>
+		<div class="header-more" @click='toMore'>更多 ></div>
 	</div>
 </template>
 
@@ -19,7 +19,9 @@ export default {
 		
 	},
 	methods: {
-		
+		toMore (kind) {
+			this.$router.push({ path: '/more', query: { kind: this.title}})
+		}	
 	}
 }
 </script>

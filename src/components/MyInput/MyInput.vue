@@ -5,13 +5,13 @@
 				<img src="./searchicon.jpeg" class="search-icon">
 				搜索
 			</div>
-			<input type="text" v-model="searchKey">
+			<input type="text" v-model="searchKey" @keyup.13='search'>
 		</div>	
 	</div>
 </template>
 
 <script>
-
+import { mapActions } from 'vuex'
 export default {
 	data () {
 		return {
@@ -23,10 +23,38 @@ export default {
 		this.$route.path == '/search' ? this.isIndex = false : ''
 	},
 	methods: {
+		...mapActions([
+			'searchMovie',
+			'changeLoading'
+		]),
 		toSearch () {
 			if (this.$route.path != '/search') {
 				this.$router.push('/search') 
 			}		
+		},
+		search () {
+			let that = this
+    		//以下是promise的写法用于请求后关掉loading
+    		// this.changeLoading()
+    		//let promise = new Promise((resolve, reject) => {
+    			//resolve(that.searchMovie(name))
+    		//})
+			//promise.then((value) => {
+			//	that.changeLoading()
+			//})
+
+			//以下是es7的async await写法
+			let change = () => {
+				return new Promise((resolve, reject) => {
+		    		resolve(that.searchMovie(that.searchKey))
+		    	})
+			}
+			let start = async () => {
+				that.changeLoading()
+				await change()
+				that.changeLoading()
+			}
+			start()
 		}
 	},
 	

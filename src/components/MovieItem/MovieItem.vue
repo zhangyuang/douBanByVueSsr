@@ -29,7 +29,7 @@ export default {
 </script>
 <style scoped>
 .movie-item-container {
-	margin-left: 1rem;
+	margin-left: 0.7rem;
 	display: flex;
 	flex-direction: column;
 	color: #b2b2b2;

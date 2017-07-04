@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-// import Search from '../components/Search/Search'
+
 Vue.use(Router)
 
 export function createRouter () {
@@ -8,7 +8,8 @@ export function createRouter () {
     mode: 'history',
     routes: [
       { path: '/', component: () => import('../components/Index/Index') },
-      { path: '/search', component: () => import('../components/Search/Search')}
+      { path: '/search', component: () => import('../components/Search/Search')},
+      { path: '/more', component: () => import('../components/MoreMovie/MoreMovie')},
     ]
   })
 }

@@ -2,7 +2,7 @@
 	<div class='search-container'>
 		<my-input></my-input>
 		<hot-emoji></hot-emoji>
-		<my-loading></my-loading>
+		<my-loading class='component-search-loading'></my-loading>
 		<movie-content :movielist='searchResult'></movie-content>
 	</div>
 </template>
@@ -39,5 +39,9 @@ export default {
 }
 </script>
 <style scoped>
-
+.component-search-loading {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+}
 </style>

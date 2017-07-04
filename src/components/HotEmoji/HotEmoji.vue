@@ -33,7 +33,7 @@ export default {
     	]),
     	search (name) {
     		let that = this
-    		//以下是promise的写法
+    		//以下是promise的写法用于请求后关掉loading
     		// this.changeLoading()
     		//let promise = new Promise((resolve, reject) => {
     			//resolve(that.searchMovie(name))

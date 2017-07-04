@@ -2,7 +2,7 @@
 	<div class="index-container">
 		<my-input></my-input>
 		<movie :item='isShow'></movie>
-		<movie :item='willShow'></movie>
+		<movie :item='willShow' ></movie>
 		<movie :item='top250'></movie>
 	</div>
 </template>
@@ -45,11 +45,7 @@ export default {
 		...mapActions([
 			
 		]),
-		
 	},
-	destoryed () {
-		
-	}
 }
 </script>
 <style scoped>
