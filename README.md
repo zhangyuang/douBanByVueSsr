@@ -47,13 +47,14 @@ npm run start-prod 在生产模式下启动
 - [ ] 收藏电影功能 -- 开发中
 - [ ] 查看文章列表功能 -- 开发中
 - [ ] 文章详情功能 -- 开发中
+
 # 功能展示
-## 搜索电影功能(支持模糊搜索)
+### 搜索电影功能(支持模糊搜索)
 <br>
-<img src='https://github.com/zhangyuang/doubanbyvuessr/blob/master/src/assets/images/search.gif'>
+<img src='https://github.com/zhangyuang/doubanbyvuessr/blob/master/src/assets/search.gif'>
 ## 查看更多电影功能
 <br>
-<img src='https://github.com/zhangyuang/doubanbyvuessr/blob/master/src/assets/images/more.gif'>
+<img src='https://github.com/zhangyuang/doubanbyvuessr/blob/master/src/assets/more.gif'>
 ## 自适应功能
 <br>
-<img src='https://github.com/zhangyuang/doubanbyvuessr/blob/master/src/assets/images/jianrong.gif'>
+<img src='https://github.com/zhangyuang/doubanbyvuessr/blob/master/src/assets/jianrong.gif'>
