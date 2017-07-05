@@ -41,7 +41,7 @@ export default {
 			currentImg: '',
 			currentName: '',
 			currentDes: '',
-			start: 10,
+			start: 0,
 			count: 10
 		}
 	},
@@ -64,14 +64,14 @@ export default {
 			let that = this
 			let change = () => {
 				return new Promise((resolve, reject) => {
+					that.start = that.start + that.count
 					axios.get(api.queryByKind + this.kind + '&start=' + this.start + '&count=' + this.count)
 						.then(res => {
-							if (res.data.result == []) {
-								this.loadMore = () => {}
+							if (res.data.result.length == 0) {
+								that.loadMore = () => {}
 							}
 							else {
 								that.currentList = that.currentList.concat(res.data.result)
-								that.start = that.start + that.count
 								resolve()
 							}	
 					})

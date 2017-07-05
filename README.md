@@ -40,10 +40,20 @@ npm run start-prod 在生产模式下启动
 - [x] 使用code spliting 尽可能优化性能 -- 完成
 - [x] 使用flex + rem实现多移动端自适应 -- 完成
 - [x] 首页查看3种分类的电影功能 -- 完成
-- [ ] 查看更多电影功能 -- 开发中
+- [x] 查看更多电影功能 -- 开发中
 - [x] 模糊搜索电影功能 -- 完成
 - [x] 热搜词功能 -- 完成
 - [ ] 查看电影详情功能 -- 开发中
 - [ ] 收藏电影功能 -- 开发中
 - [ ] 查看文章列表功能 -- 开发中
 - [ ] 文章详情功能 -- 开发中
+# 功能展示
+## 搜索电影功能(支持模糊搜索)
+<br>
+<img src='https://github.com/zhangyuang/doubanbyvuessr/blob/master/src/assets/images/search.gif'>
+## 查看更多电影功能
+<br>
+<img src='https://github.com/zhangyuang/doubanbyvuessr/blob/master/src/assets/images/more.gif'>
+## 自适应功能
+<br>
+<img src='https://github.com/zhangyuang/doubanbyvuessr/blob/master/src/assets/images/jianrong.gif'>
