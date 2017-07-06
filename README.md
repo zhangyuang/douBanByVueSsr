@@ -1,5 +1,5 @@
 # 基于最新的vue2.3的ssr(服务端渲染)搭建的仿豆瓣项目
-后台restful api采用node + express框架。[项目地址](https://github.com/zhangyuang/MyDouBanApi)
+前后端通过JSON进行通信，后台restful api采用node + express框架。[项目地址](https://github.com/zhangyuang/MyDouBanApi)
 <br>
 关于为什么要使用首页服务端渲染。主要的优点有以下两点
 <br>
