@@ -24,6 +24,8 @@ git clone git@github.com:zhangyuang/doubanbyvuessr.git
 
 npm install
 
+npm run build 请先build不然无法启动回报xxx.json找不到的错误
+
 npm run dev 在开发模式下启动
 
 npm run build
